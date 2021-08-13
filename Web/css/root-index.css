@@ -1,0 +1,221 @@
+:root {
+    --cw-color: rgb(90, 204, 224);
+    --dic-color: rgb(247, 165, 15);
+    --pt-color: rgb(0, 255, 191);
+}
+
+/* 定义滚动条样式 */
+::-webkit-scrollbar {
+    width: 6px;
+    border-radius: 15px;
+    background-color: rgb(255, 190, 11);
+}
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    background-color: rgb(133, 235, 229);
+}
+main {
+    margin: 50px 300px;
+    min-height: 450px;
+    width: 1200px;
+    overflow: hidden;
+    background: #fff;
+}
+main>.wrap {
+    display: flex;
+    display: -webkit-flex;
+    position: relative;
+    width: 400%;
+    transition: all .6s ease-out;
+}
+main>.wrap>div {
+    margin-top: 40px;
+    padding: 10px 20px;
+    flex: 1;
+}
+.tit {
+    padding-left: 20px;
+    font-size: 35px;
+    font-weight: 100;
+    height: 40px;
+    line-height: 40px;
+}
+
+.con {
+    margin-top: 20px;
+    margin-left: 5%;
+    padding: 5px;
+    width: 90%;
+}
+
+[class$='item'] {
+    margin: 10px 0;
+
+    color: #000;
+    
+    line-height: 2;
+    cursor: pointer;
+}
+[class$='item'] p {
+    max-width: 880px;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 18px;
+    text-overflow: ellipsis;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.cw-tit {
+    text-shadow: 3px 0 3px var(--cw-color);
+    border-bottom: 2px solid var(--cw-color);
+}
+
+.cw-item {
+    border: 1px solid rgb(114, 182, 209);
+}
+.courseware>div:nth-of-type(1) {
+    margin-top: 20px;
+    padding-left: 433px;
+}
+.courseware .file {
+    display: none;
+}
+.courseware>div>span {
+    margin-right: 12px;
+    padding: 5px 30px;
+    border: 1px solid #aaa;
+    cursor: pointer;
+}
+.courseware>div>span:hover {
+    color: rgb(6, 132, 235);
+    border-color: skyblue;
+}
+
+.courseware .coursewareSub {
+    padding: 5px 0;
+    width: 80px;
+    height: 32.8px;
+    border: none;
+    cursor: pointer;
+    color: rgb(7, 158, 228);
+    background: rgb(243, 246, 247);
+    border: 1px solid rgb(131, 206, 236);
+    transition: all .4s;
+}
+.courseware .coursewareSub:hover {
+    border-radius: 5px;
+    color: #fff;
+    background: rgb(131, 206, 236);
+}
+.courseware ul li {
+    display: flex;
+    align-items: center;
+}
+.courseware ul li a {
+    display: block;
+    flex: 1;
+    margin: 5px;
+    padding: 10px 0 10px 5px;
+    border: 1px solid skyblue;
+    transition: all .3s;
+}
+.courseware ul li a:hover {
+    color: #fff;
+    background: rgb(7, 140, 192);
+}
+.courseware ul li button {
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    outline: none;
+}
+.courseware ul li button:hover {
+    cursor: pointer;
+    border: 1px solid red;
+    color: #fff;
+    background: crimson;
+    box-shadow: 0 0 5px red;
+}
+.dic-tit {
+    text-shadow: 3px 0 3px var(--dic-color);
+    border-bottom: 2px solid var(--dic-color);
+}
+.dic-item {
+    border: 1px solid rgb(230, 170, 92);
+}
+
+
+.pt-tit {
+    text-shadow: 3px 0 3px var(--pt-color);
+    border-bottom: 2px solid var(--pt-color);
+}
+.pt-item {
+    border: 1px solid rgb(135, 226, 176);
+}
+
+.createTime {
+    margin-left: 100px;
+    color: rgba(223, 100, 0, 0.87);   
+}
+.userName {
+    color: rgb(0, 117, 163);
+}
+.dic-item {
+    display: flex;
+    border-radius: 5px;
+}
+
+.dic-info-wrap {
+    flex: 1;
+    padding: 9px 0 8px 20px;
+}
+.del-dic {
+    width: 50px;
+    text-align: center;
+    height: 85px;
+    line-height: 85px;
+    color: #fff;
+    border-radius: 5px;
+    background: rgb(221, 75, 39);
+    transition: width .3s;
+}
+.del-dic:hover {
+    width: 100px;
+    font-size: 18px;
+    background: crimson;
+    box-shadow: 0 0 5px red;
+}
+
+
+aside {
+    position: absolute;
+    top: 170px;
+    bottom: 140px;
+    padding-top: 10px;
+    width: 180px;
+    box-sizing: border-box;
+    background: rgb(172, 228, 228);
+}
+
+aside ul {
+    width: 180px;
+    overflow: hidden;
+}
+
+aside li {
+    width: 180px;
+    height:66px;
+    text-align: center;
+    line-height:66px;
+    color: #000;
+    border-bottom: 1px dotted rgb(3, 112, 184);
+    cursor: pointer;
+    transition: all .3s;
+}
+aside li:hover {
+    padding-left: 5px;
+    color: #fff;
+    background: rgb(23, 105, 182);
+}

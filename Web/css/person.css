@@ -1,0 +1,311 @@
+main {
+    margin: 30px auto;
+    min-height: 450px;
+    padding-top: 30px;
+    display: flex;
+    width: 1200px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.main-left {
+    width: 350px;
+}
+
+.main-left .avatar {
+    padding: 0 30px;
+    width: 300px;
+    text-align: center;
+}
+.main-left .avatar img {
+    margin: 20px 0;
+    width: 260px;
+    max-height: 185px;
+    min-height: 150px;
+    height: auto;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.main-left .avatar span {
+    margin-right: 12px;
+    padding: 5px 30px;
+    border: 1px solid #aaa;
+    cursor: pointer;
+}
+.main-left .avatar span:hover {
+    color: rgb(6, 132, 235);
+    border-color: skyblue;
+}
+.main-left .avatar .sub {
+    padding: 5px 0;
+    width: 80px;
+    height: 32.8px;
+    border: none;
+    cursor: pointer;
+    color: rgb(7, 158, 228);
+    background: rgb(243, 246, 247);
+    border: 1px solid rgb(131, 206, 236);
+    transition: all .4s;
+}
+.main-left .avatar .sub:hover {
+    border-radius: 5px;
+    color: #fff;
+ background: rgb(131, 206, 236);
+}
+
+.main-left .avatar input[type='file'] {
+    display: none;
+}
+
+.main-left .userName,
+.main-left .userPassword {
+    margin:20px 0 20px 42px;
+    width: 280px;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+}
+.main-left .userName input,
+.main-left .userPassword input {
+    margin-left: 15px;
+    padding-left: 15px;
+    height: 35px;
+    font-size: 16px;
+    background: rgb(227, 248, 247);
+    border: 2px solid #fff;
+    outline: skyblue;
+    transition: all .3s;
+}
+
+.main-left .userName input:focus,
+.main-left .userPassword input:focus {
+    background: #fff;
+    border: 2px solid rgb(167, 229, 253);
+}
+
+
+.submit {
+    margin: 30px auto;
+    position: relative;
+    width: 180px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border: 2px solid orange;
+    cursor: pointer;
+}
+.delUser {
+    margin: 30px auto;
+    width: 180px;
+    height: 40px;
+    cursor: pointer;
+    color: red;
+    text-align: center;
+    line-height: 40px;
+    box-shadow: 0 0 5px rgb(204, 5, 5);
+    border: 2px solid red;
+}
+.delUser:hover {
+    font-weight: bolder;
+    color: #fff;
+    background: rgb(235, 77, 77);
+    box-shadow: 3px 3px 10px red;
+    
+}
+
+.submit::after,
+.submit::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    transition: all .5s;
+}
+
+.submit::before {
+    top: -8px;
+    left: -8px;
+    border-left: 2px solid rgb(11, 169, 241);
+    border-top: 2px solid rgb(8, 224, 231);
+}
+
+.submit::after {
+    bottom: -8px;
+    right: -8px;
+    border-right: 2px solid rgb(8, 224, 231);
+    border-bottom: 2px solid rgb(11, 169, 241);
+}
+
+.submit:hover::before,
+.submit:hover::after{
+    border-color: rgb(255, 130, 28);
+    width: calc(100% + 14px);
+    height: calc(100% + 14px);
+}
+
+/* 主体右部=========================================== */
+.main-right {
+    flex: 1;
+    border-left: 1px dotted rgb(5, 233, 221);
+    padding: 20px;
+}
+
+.main-right .tit {
+    padding: 10px 0;
+    font-weight: 100;
+    border-bottom: 1px solid rgb(142, 248, 252);
+}
+
+.mymoment {
+    margin-top: 15px;    
+    height: 450px;
+    overflow-y: scroll;
+}
+.mymoment li {
+    position: relative;
+}
+.mymoment li a {
+    display: block;
+    padding: 15px 0 15px 45px;
+    height: 50px;
+    cursor: pointer;
+    border-bottom: 1px solid rgb(137, 187, 174);
+    transition: all .3s;
+}
+.mymoment li a p {
+    margin: 5px 0;
+    width: 750px;
+    font-size: 18px;
+    font-weight: 100;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.mymoment li a .date {
+    width: 194px;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    color: rgb(26, 243, 189);
+    
+}
+/* .mymoment li:hover a{
+    padding-left: 53px;
+    color: #fff;
+    background: rgb(19, 173, 194);
+} */
+
+.mymoment li a .mask {
+    width: 100%;
+    height: 0;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, .6);
+    transition: all .3s;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.mymoment li a .mask .edit {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    color: #fff;
+    font-size: 35px;
+    transform: translate(-50%, -50%);
+}
+
+.mymoment li a .mask .delete {
+    position: absolute;
+    top: 50%;
+    right: 40%;
+    color: #fff;
+    font-size: 35px;
+    transform: translate(-50%, -50%);
+}
+.mymoment li a .mask i:hover {
+    color: rgb(0, 200, 250);
+}
+.mymoment li:hover a .mask {
+    height: 100%;
+}
+
+/* 定义滚动条样式 */
+::-webkit-scrollbar {
+width: 6px;
+border-radius: 15px;
+background-color: rgb(255, 190, 11);
+}
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    background-color: rgb(133, 235, 229);
+}
+
+.updateMoment {
+    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 3;    
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    width: 0;
+    height: 60px;
+    background: rgb(4, 135, 150);
+    overflow: hidden;
+    transition: width .6s;
+}
+.updateMoment .con {
+    margin-left: 10%;
+    min-width: 880px;
+    max-width: 980px;
+    min-height: 50px;
+    max-height: 50px;
+    padding: 10px;
+    color: #000;
+    background: #fff;
+    line-height: 1.5;
+    outline: none;
+    border: 2px solid paleturquoise;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    text-indent: 2em;
+}
+.updateMoment .sub {
+    margin-left: 50px;
+    width: 100px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    color: rgb(40, 116, 214);
+    background: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all .3s;
+    transform: translate3d(0,0,0);
+}
+
+.updateMoment .sub:hover {
+    transform: scale(1.1) translateZ(0);
+    border-radius: 15%;
+    background: rgb(203, 250, 250);
+}
+
+.updateMoment .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    width: 60px;
+    height: 60px;
+    color: #fff;
+    cursor: pointer;
+}
+.updateMoment .close:hover {
+    color: orange;
+}

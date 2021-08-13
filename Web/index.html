@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/iconfont.css">
+</head>
+
+<body>
+    <div class="uerWrap">
+        <div class="bg"></div>
+        <main>
+            <form class="wrap login">
+                <h2>登录页</h2>
+                <div class="form-group">
+                    <i class="iconfont icon-yonghu"></i>
+                    <input type="text" name="user" placeholder="请输入用户名" autocomplete="off" class="loginUser" value="">
+                </div>
+                <div class="form-group">
+                    <i class="iconfont icon-mima"></i>
+                    <input type="password" name="password" placeholder="请输入密码" autocomplete="off" class="loginPwd" value="">
+                </div>
+                <div class="form-group">
+                    <button type="button" class="loginBtn sub"">
+                        <i class=" iconfont icon-Rightxiangyou7"></i>
+                    </button>
+                </div>
+                <div class="form-group">
+                    <span>没有账号?</span>
+                    <a href="javascript:;" class="toRegister">前往注册</a>
+                </div>
+                <div class="forget" onclick="(function() { alert('请联系管理员，电话：123456789') })()">忘记密码?</div>
+            </form>
+            <form class="wrap register">
+                <!-- <h2 id="check">请确认密码是否一致</h2> -->
+                <h2>注册页</h2>
+                <div class="form-group">
+                    <i class="iconfont icon-yonghu"></i>
+                    <input type="text" name="user" placeholder="请输入用户名" autocomplete="off" class="regUser">
+                </div>
+                <div class="form-group">
+                    <i class="iconfont icon-mima"></i>
+                    <input type="password" name="password" placeholder="请输入密码" autocomplete="off" class="regPwd">
+                </div>
+                <div class="form-group">
+                    <i class="iconfont icon-mima"></i>
+                    <input type="password" name="password" placeholder="请确认密码" autocomplete="off" class="pwdCheck">
+                </div>
+                <div class="form-group">
+                    <button type="button" class="registerBtn sub">
+                        <i class="iconfont icon-Rightxiangyou7"></i>
+                    </button>
+                </div>
+                <div class="form-group">
+                    <span>已有账号?</span>
+                    <a href="javascript:;" class="toLogin">前往登录</a>
+                </div>
+            </form>
+            
+        </main>
+        <div class="toRoot">
+            前往管理界面  <i class=" iconfont icon-Rightxiangyou7"></i>
+        </div>
+    </div>
+    <div class="rootWrap">
+        <div class="toUser">
+            <i class="iconfont icon-arrow_left"></i>前往用户界面
+        </div>
+        <main>
+            <form class="wrap">
+                <h2>管理登录</h2>
+                <div class="form-group">
+                    <i class="iconfont icon-yonghu"></i>
+                    <input type="text" name="user" placeholder="请输入用户名" autocomplete="off" class="rootUser" value="">
+                </div>
+                <div class="form-group">
+                    <i class="iconfont icon-mima"></i>
+                    <input type="password" name="password" placeholder="请输入密码" autocomplete="off" class="rootPwd" value="">
+                </div>
+                <div class="form-group">
+                    <button type="button" class="rootLogin sub">
+                        <i class=" iconfont icon-Rightxiangyou7"></i>
+                    </button>
+                </div>
+            </form>
+        </main>
+        
+    </div>
+    <script src="./js/axios.min.js"></script>
+    <script src="./js/login.js"></script>
+</body>
+
+</html>

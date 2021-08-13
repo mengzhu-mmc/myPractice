@@ -1,0 +1,387 @@
+/* main */
+.floor1 {
+    display: flex;
+    justify-content: space-around;
+    background: #fff;
+    margin-top: 30px;
+    padding: 30px 0;
+}
+
+.floor1 .carousel {
+    margin: 0;
+    overflow: hidden;
+    width: 600px;
+    height: 370px;
+    box-shadow: 0 0 5px #999;
+}
+
+.floor1 .carousel img {
+    width: 600px;
+    height: 370px;
+}
+
+.floor1 .main-middle {
+    margin: 0 10px;
+    width: 250px;
+    height: 386px;
+    box-shadow: 0 0 5px #999;
+}
+
+.floor1 .mid-tit {
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-around;
+    height: 40px;
+    line-height: 40px;
+    background-color: rgb(73, 161, 233);
+    color: #fff;
+}
+
+.floor1 .mid-tit h2 {
+    font-weight: normal;
+    margin-right: 10px;
+}
+
+.floor1 .mid-tit a {
+    color: #fff;
+}
+
+.floor1 .mid-tit a:hover {
+    color: tomato;
+}
+
+.floor1 .mid-content {
+    padding: 10px 10px;
+}
+
+.floor1 .mid-content a {
+    display: block;
+    text-indent: 2em;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+
+.floor1 .mid-content a:hover {
+    color: rgb(41, 162, 243);
+    text-decoration: underline;
+}
+
+.floor1 .main-right {
+    width: 250px;
+    box-shadow: 0 0 5px #999;
+}
+
+.floor1 .main-right .rig-tit {
+    padding: 10px 0;
+    height: 40px;
+    line-height: 40px;
+    font-weight: normal;
+    color: #fff;
+    text-align: center;
+    background-color: rgb(73, 161, 233);
+}
+
+.floor1 .rig-tit a:hover {
+    color: tomato;
+}
+
+.floor1 .rig-more {
+    display: block;
+    height: 50px;
+    font-size: 18px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.floor1 .rig-more:hover {
+    color: tomato;
+}
+
+.floor1 .main-right ul li a {
+    display: block;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    font-size: 20px;
+    transition: all .3s;
+}
+
+.bg1 {
+    color: #fff;
+    background: linear-gradient(to right, rgb(25, 228, 243), rgb(152, 228, 240))
+}
+
+.bg2 {
+    color: #fff;
+    background: linear-gradient(to right, rgb(248, 141, 69), rgb(231, 202, 144))
+}
+
+.bg3 {
+    color: #fff;
+    background: linear-gradient(to right, rgb(75, 255, 99), rgb(55, 240, 200))
+}
+
+.bg4 {
+    color: #fff;
+    background: linear-gradient(to right, rgb(236, 121, 188), rgb(238, 136, 207))
+}
+
+.bg5 {
+    color: #fff;
+    background: linear-gradient(to right, rgb(174, 26, 219), rgb(233, 96, 199))
+}
+
+.bg1:hover {
+    color: rgb(101, 199, 238);
+    box-shadow: 0 0 5px #666;
+    background: #fff;
+}
+
+.bg2:hover {
+    color: orange;
+    box-shadow: 0 0 5px #666;
+    background: #fff;
+}
+
+.bg3:hover {
+    color: rgb(136, 230, 148);
+    box-shadow: 0 0 5px #666;
+    background: #fff;
+}
+
+.bg4:hover {
+    color: rgb(236, 121, 188);
+    box-shadow: 0 0 5px #666;
+    background: #fff;
+}
+
+.bg5:hover {
+    color: rgb(174, 26, 219);
+    box-shadow: 0 0 5px #666;
+    background: #fff;
+}
+
+.floor2 {
+    margin-top: 30px;
+    padding: 30px 0;
+    background: #fff;
+}
+
+.swiper2 {
+    width: 600px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.floor2 img {
+    width: 600px;
+    height: 360px;
+    box-shadow: 0 0 5px rgb(52, 240, 240);
+}
+
+#thumbs {
+    padding-top: 10px;
+    margin-top: 30px;
+}
+
+#thumbs>div {
+    display: flex;
+    justify-content: space-between;
+}
+
+#thumbs>div>div {
+    width: 250px;
+    height: 180px;
+    line-height: 170px;
+    text-align: center;
+    transition: all .3s;
+    cursor: pointer;
+}
+
+#thumbs img {
+    width: 250px;
+    height: 155px;
+    vertical-align: middle;
+
+}
+
+.my-slide-thumb-active {
+    transform: scale(1.15);
+}
+
+.my-slide-thumb-active img {
+    box-shadow: 0 0 10px orange;
+}
+
+/* floor3 */
+.floor3,
+.floor4 {
+    margin-top: 30px;
+    padding: 30px 10px;
+    display: flex;
+    display: -webkit-flex;
+    background-color: #fff;
+}
+.floor3-l,
+.floor4-l {
+    width: 60%;
+}
+.floor3-l-tit,
+.floor3-r-tit,
+.floor4-l-tit,
+.floor4-r-tit,
+.floor5-tit,
+.floor6-tit  {
+    display: flex;
+    justify-content: space-between;
+    height: 55px;
+    line-height: 55px;
+    padding:0 20px;
+    color: #fff;
+    background-color: rgb(73, 161, 233);
+}
+
+.floor3-l-tit a,
+.floor3-r-tit a,
+.floor4-l-tit a,
+.floor4-r-tit a {
+    color: #fff;
+}
+a:hover {
+    color: orange;
+}
+.floor3-l ul,
+.floor4-l ul {
+    margin-top: 14px;
+}
+.floor3-l ul li,
+.floor4-l ul li {
+    padding:0 10px;
+    height: 34px;
+    line-height: 34px;
+}
+.floor3-l ul li a,
+.floor4-l ul li a {
+    display: inline-block;
+    width: 100%;
+    font-size: 16px;
+}
+.floor3-l ul li a:hover {
+    color: rgb(11, 185, 238);
+}
+.floor3-l ul li a span,
+.floor4-l ul li a span {
+    float: right;
+}
+
+.floor3-r,
+.floor4-r {
+    position: relative;
+    margin-left: 2%;
+    width: 38%;
+}
+
+.floor3-r-con img {
+    margin-top: 14px;
+    width: 100%;
+    height: auto;
+}
+.floor3-r-con a {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    background: rgba(0, 0, 0, .7);
+}
+.floor3-r-con a:hover,
+.floor5-tit a:hover,
+.floor6-tit a:hover {
+    color: orange;
+}
+.floor4-r video {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.floor5 {
+    margin-top: 30px;
+    padding: 30px 10px 10px;
+    background: #fff;
+}
+.floor5-tit a,
+.floor6-tit a {
+    color: #fff;   
+}
+.floor5-con ul {
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    height: 95px;
+}
+.floor5-con ul li {
+    width: 16%;
+    margin: 0 2%;    
+    height: 44px;
+}
+.floor5-con ul li a {
+    display: block;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    letter-spacing: 2px;
+    border: 2px solid orange;
+}
+.floor5-con ul li a:hover {
+    box-shadow: 0 0 8px orangered;
+}
+
+.floor6 {
+    padding: 30px 0;
+    text-align: center;
+    margin-top: 30px;
+    background-color: #fff;
+}
+
+.floor6-con {
+    padding: 20px 40px 20px 20px;
+    height: 100px;
+}
+
+.floor6-con textarea {
+    padding: 10px;
+    width: 100%;
+    height: 90px;
+    max-width: 100%;
+    max-height: 100%;
+    min-height: 30px;
+    font-size: 18px;
+    color: rgb(0, 134, 243);
+    letter-spacing: 1px;
+}
+
+.floor6 .sub {
+    margin-top: 20px;
+    width: 120px;
+    height: 50px;
+    font-size: 18px;
+    border: 2px solid rgb(0, 162, 255);
+    background: transparent;
+    cursor: pointer;
+}
+.floor6 .sub:hover {
+    color: rgb(0, 162, 255);
+    box-shadow: 0 0 5px rgb(26, 213, 238);
+}
+
+button:focus, 
+input:focus,
+textarea:focus{
+    outline:none;
+    box-shadow: 0 0 5px rgb(119, 220, 233);
+}

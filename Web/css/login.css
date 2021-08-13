@@ -1,0 +1,293 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+:root {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+body {
+    display: flex;
+    width: 200%;
+    height: 100%;
+}
+/* #check {
+    margin: 10px 0;
+    font-size: 18px;
+    color: red;
+} */
+.uerWrap {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.bg::before {
+    position: absolute;
+    left: 0;
+    content: '';
+    width: 50%;
+    height: 100%;
+    background-color: rgb(148, 225, 228);
+}
+.bg::after {
+    position: absolute;
+    right: 0;
+    content: '';
+    width: 50%;
+    height: 100%;
+    background-color: rgb(245, 187, 134);
+}
+main {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 360px;
+    height: 435px;
+    box-shadow: 0 0 20px rgb(106, 155, 155);
+    transform-style: preserve-3d;
+    perspective: 500px;
+    z-index: 2;
+    transition: all 1s ease-in-out;
+}
+.wrap {    
+    position: absolute;
+    width: 310px;
+    height: 365px;
+    padding: 40px 25px 30px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.register {
+    transform: rotateY(180deg) translateZ(2px);
+}
+
+.register .form-group {
+    margin-bottom: 19px;
+}
+
+.wrap h2 {
+    /* etter-spacing 属性增加或减少字符间的空白 */
+    letter-spacing: 1px;
+    font-size: 28px;
+    margin:0 auto 40px;
+}
+
+.login .form-group {
+    margin-bottom: 23px;
+}
+
+.wrap .form-group i {
+    vertical-align: middle;
+    margin-right: 5px;
+    width: 5px;
+    height: 5px;
+}
+.wrap .form-group input {
+    padding: 5px 10px;
+    border: none;
+    height: 40px;
+    line-height: 40px;
+    font-size: 17px;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    letter-spacing: 2px;
+    background-color: #fff;
+    
+}
+.login .form-group input {
+    color: rgb(29, 231, 181);
+}
+.register .form-group input {
+    color: orange;
+}
+.login input:focus {
+    border-bottom: 1px solid skyblue;
+    background-color: #fff;
+}
+.register input:focus {
+    border-bottom: 1px solid rgb(236, 180, 127);
+    background-color: #fff;
+}
+.wrap .form-group .sub {
+    position: relative;
+    width: 150px;
+    height: 45px;
+    border: none;
+    outline: none;
+
+    cursor: pointer;
+    transition: all .2s linear .1s;
+}
+.login .form-group .sub {
+    background-color: rgb(214, 237, 238);
+}
+.register .form-group .sub {
+    background-color: rgb(245, 216, 176);
+}
+
+.wrap .form-group .sub::before,
+.wrap .form-group .sub::after {
+    position: absolute;
+    content: '';
+    width: 3px;
+    height: 20px;
+
+    /* transition: property duration timing-function delay; */
+    transition: all .3s ease-in-out;
+}
+
+.login .form-group .sub::before,
+.login .form-group .sub::after {
+    background-color: rgb(131, 206, 209);
+}
+
+.register .form-group .sub::before,
+.register .form-group .sub::after {
+    background-color: orange;
+}
+
+.wrap .form-group .sub::before {
+    top: 0;
+    right: 0;
+}
+
+.wrap .form-group .sub::after {
+    left: 0;
+    bottom: 0;
+   
+}
+
+.login .form-group .sub:hover {
+     /* 重点2  !!!!!!! */
+    background-color: rgb(131, 206, 209);
+}
+.register .form-group .sub:hover {
+    background-color: orange;
+}
+
+.wrap .form-group .sub:hover:before,
+.wrap .form-group .sub:hover:after {
+    width: 50%;
+    height: 100%;
+    /* 重点1  !!!!!!! */
+    opacity: 0;
+}
+
+.wrap .form-group .sub i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 18px;
+    height: 18px;
+    font-weight: bold;
+    font-size: 18px;
+    z-index: 2;
+    transition: all .3s;
+}
+
+.login .form-group .sub i {
+    color: rgb(122, 223, 226);
+}
+
+.register .form-group .sub i {
+    color: orange;
+}
+
+.wrap .form-group .sub:hover i {
+    color: #fff;
+}
+
+.wrap .forget:hover {
+    color: rgb(18, 214, 214);
+    cursor: pointer;
+}
+
+.wrap .form-group span {
+    letter-spacing: 1px;
+    font-size: 16.8px;
+}
+.wrap .form-group a {
+    letter-spacing: 1px;
+    padding: 5px;
+    font-weight: bold;
+
+    text-decoration: none;
+}
+.login .form-group a {
+    color: rgb(253, 196, 9);
+}
+.register .form-group a {
+    color: rgb(122, 223, 226)
+}
+.login .form-group a:hover {
+    color: rgb(122, 223, 226);
+}
+.register .form-group a:hover {
+    color: rgb(253, 196, 9);
+}
+
+.toRoot,
+.toUser {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 160px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    background: paleturquoise;
+}
+.toRoot:hover {
+    cursor: pointer;
+    color: #fff;
+    background: orange;
+}
+.toUser:hover {
+    cursor: pointer;
+    color: #fff;
+    background: rgb(243, 155, 54);
+}
+.toUser .iconfont::before{
+    transform: rotate(180deg);
+}
+.rootWrap {
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../images/bg.jpg) no-repeat center center;
+    background-size: cover;
+    z-index: 3;
+    transition: all .8s ease-out;
+}
+.rootWrap main ,
+.rootWrap .wrap {
+    height: 300px;
+}
+
+.rootWrap main{
+    box-shadow: 0 0 20px rgb(158, 157, 157);
+}
+
+.rootWrap .form-group {
+    margin-bottom: 20px;
+}
+.rootWrap .rootLogin {
+    margin-top: 15px;
+}
+.rootWrap .rootLogin:hover {
+    background: rgb(175, 174, 171);
+}

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据结构教学网站</title>
+    <link rel="shutdown icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/second-common.css">
+    <style>
+        .newsInfo {
+            position: relative;
+        }
+
+        .newsInfo .show {
+            position: absolute;
+            right: 10px;
+            bottom: 0;
+            width: 110px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            color: #fff;
+            background: rgb(48, 139, 175);
+            border-radius: 5px;
+        }
+
+        .newsInfo .show:hover {
+            cursor: pointer;
+            color: rgb(34, 136, 177);
+            border: 1px solid rgb(27, 125, 163);
+            background: #fff;
+        }
+
+        .updateMoment {
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 3;
+            display: flex;
+            display: -webkit-flex;
+            align-items: center;
+            width: 0;
+            height: 60px;
+            background: rgb(4, 135, 150);
+            overflow: hidden;
+            transition: width .6s;
+        }
+
+        .updateMoment .con {
+            margin-left: 10%;
+            min-width: 880px;
+            max-width: 980px;
+            min-height: 50px;
+            max-height: 50px;
+            padding: 10px;
+            color: #000;
+            background: #fff;
+            line-height: 1.5;
+            outline: none;
+            border: 2px solid paleturquoise;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            text-indent: 2em;
+        }
+
+        .updateMoment .sub {
+            margin-left: 50px;
+            width: 100px;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+            color: rgb(40, 116, 214);
+            background: #fff;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all .3s;
+            transform: translate3d(0, 0, 0);
+        }
+
+        .updateMoment .sub:hover {
+            transform: scale(1.1) translateZ(0);
+            border-radius: 15%;
+            background: rgb(203, 250, 250);
+        }
+
+        .updateMoment .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 30px;
+            width: 60px;
+            height: 60px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .updateMoment .close:hover {
+            color: orange;
+        }
+
+        .main-right-con li {
+            padding: 10px 0;
+            font-size: 18px;
+            cursor: pointer;
+            border-bottom: 1px solid orange;
+            transition: all .3s;
+        }
+        .main-right-con li:hover {
+            padding-left: 10px;
+            background: rgb(3, 132, 184);
+        }
+        .main-right-con li:hover p,
+        .main-right-con li:hover span {
+            color: #fff;
+        }
+        .main-right-con li p {
+            padding-left: 5px;
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: rgb(15, 91, 177);
+        }
+
+        .main-right-con li .userName {
+            padding-left: 5px;
+            color: rgb(6, 132, 170);
+        }
+
+        .main-right-con li .createTime {
+            margin-left: 80px;
+            color: rgb(245, 134, 7);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- header -->
+    <header>
+        <div class="wrap">
+            <div class="logo">
+            </div>
+            <div class="content">
+                数据结构教学网站
+            </div>
+            <div href="#" class="user">
+                <img src alt="" class="avatar">
+                <div class="person">
+                    <a href="./person.html" class="home">个人中心</a>
+                    <a href="#" class="logout">退出<span class="iconfont icon-exittuichu"></span></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <ul class="wrap">
+            <li>
+                <a href="./index.html">首页</a>
+            </li>
+            <li>
+                <a href="./课程简介.html">课程简介</a>
+                <ul>
+                    <li><a href="./教学大纲.html">教学大纲</a></li>
+                    <li><a href="./教学日历.html">教学日历</a></li>
+                    <li><a href="./教案.html">教案</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="./电子讲稿.html">电子讲稿</a>
+            </li>
+            <li>
+                <a href="./算法.html">算法</a>
+                <ul>
+                    <li><a href="./算法.html">
+                            算法描述
+                        </a></li>
+                    <li><a href="./代码实现.html">
+                            代码实现
+                        </a></li>
+                    <li><a href="./动画展示.html">
+                            动画展示
+                        </a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="./讨论交流.html">讨论交流</a>
+            </li>
+            <li>
+                <a href="./相关资料.html">相关资料</a>
+            </li>
+            <li>
+                <a href="./我要留言.html">我要留言</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="wrap" style="background: #fff;">
+        <div class="main-list">
+            <h3>我要留言</h3>
+            <ul>
+                <li>
+                    <a href="javascript:;"
+                        style="color: rgb(11, 172, 236);background-color: #E9E9E9;border-left: 8px solid #FF9501;">
+                        我要留言
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="main-right">
+            <ol class="main-right-tit">
+                <li><a href="./index.html">首页</a></li>
+                <li><a href="javascript:;">我要留言</a></li>
+            </ol>
+            <div class="newsInfo">
+                <h3>我要留言</h3>
+                <div class="show">点我留言</div>
+            </div>
+            <ul class="main-right-con">
+                <li>
+                    <p>sdfasdfsadfasdfsdfsfas</p>
+                    <span class="userName">发布者：张三</span>
+                    <span class="createTime">发布时间：2018-9-6</span>
+                </li>
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+    </main>
+
+    <!-- foot -->
+    <footer>
+        <div class="wrap">
+            <p>大庆市高新技术开发区发展路199号东北石油大学 &nbsp;&nbsp;&nbsp; 邮政编码：163318</p>
+            <p>
+                电子邮箱：zsb007@126.com &nbsp;&nbsp; 联系电话：0459-6503662 &nbsp;&nbsp; 传真：0459-6503662 &nbsp;&nbsp;
+                备案：京ICP备10000000号-3 &nbsp;&nbsp;
+                京公网安备：10000000000753号 &nbsp;&nbsp;
+            </p>
+        </div>
+
+    </footer>
+
+    <div class="updateMoment wrap">
+        <textarea class="con"></textarea>
+        <div class="sub">提交</div>
+        <div class="close">X</div>
+    </div>
+
+    <script src="../js/axios.min.js"></script>
+    <script src="../js/commend.js"></script>
+    <script>
+
+
+        // 格式化日期
+        Date.prototype.format = function (fmt) {
+            var o = {
+                "M+": this.getMonth() + 1, //月份
+                "d+": this.getDate(), //日
+                "h+": this.getHours(), //小时
+                "m+": this.getMinutes(), //分
+                "s+": this.getSeconds(), //秒
+                "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+                "S": this.getMilliseconds() //毫秒
+            };
+            if (/(y+)/.test(fmt)) {
+                fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+            }
+            for (var k in o) {
+                if (new RegExp("(" + k + ")").test(fmt)) {
+                    fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[
+                        k]).length)));
+                }
+            }
+            return fmt;
+        }
+
+            // 获取用户信息
+            axios.get('user/userInfo')
+            .then((res) => {
+                res = res.data
+                if (res[0].avatarUrl == 'null') {
+                    headerAvatar.src = '../images/default-avatar.jpg'
+                } else {
+                    headerAvatar.src = res[0].avatarUrl
+                }
+            })
+            .catch((err) => {
+                if (err.response == undefined || err.response.status !== 200) {
+                    localStorage.removeItem('token');
+                    alert('Token已过期，请重新登录~')
+                    window.location.href = 'http://192.168.43.71:3001/'
+                }
+            })
+
+        // 发表回复
+        const updateMoment = document.querySelector('.updateMoment')
+        const close = document.querySelector('.updateMoment .close')
+        const commentInfo = document.querySelector('.updateMoment .con')
+        const commentSub = document.querySelector('.updateMoment .sub')
+        const show = document.querySelector('.newsInfo .show ')
+        const mainRightCon = document.querySelector('.main-right-con')
+        // 关闭窗口 
+        addEvent(close, 'click', () => {
+            document.querySelector('.updateMoment').style.width = '0';
+            commentInfo.value = ''
+        })
+
+        // 留言列表
+        axios.get('/message')
+            .then((res) => {
+                let msgList = res.data
+                console.log(msgList);
+                msgList.forEach(item => {
+                    let msgCreateTime = new Date((item.createTime).toString()).format("yyyy-MM-dd hh:mm:ss");
+                    let li = document.createElement('li')
+                    li.innerHTML += `
+                        <p>${item.content}</p>
+                        <span class="userName">发布者：${item.name}</span>
+                        <span class="createTime">发布时间：${msgCreateTime}</span>`
+                    mainRightCon.appendChild(li)
+                });
+            })
+            .catch((err) => {
+                console.log(err.response);
+            })
+
+        // 提交留言
+        addEvent(show, 'click', () => {
+            updateMoment.style.width = '100%'
+        })
+        addEvent(commentSub, 'click', () => {
+            if (commentInfo.value == '') {
+                document.querySelector('.updateMoment').style.width = '0';
+                return false
+            }
+            axios.post('/message', {
+                    'content': commentInfo.value
+                })
+                .then((res) => {
+                    console.log(res);
+                    window.location.reload()
+                })
+                .catch((err) => {
+                    console.log(err.response);
+                })
+        })
+    </script>
+</body>
+
+</html>

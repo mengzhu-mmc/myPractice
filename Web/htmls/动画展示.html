@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据结构教学网站</title>
+    <link rel="shutdown icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/second-common.css">
+    <style>
+        .news h4 {
+            font-size: 20px;
+            padding: 10px 0;
+        }
+        .news h5 {
+            text-indent: 1em;
+            font-size: 18px;
+            padding: 5px 0;
+        }
+        .news h6 {
+            text-indent: 2em;
+            font-size: 16px;
+            padding: 5px 0;
+        }
+        .news p {
+            text-indent: 3.5em;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- header -->
+    <header>
+        <div class="wrap">
+            <div class="logo">
+            </div>
+            <div class="content">
+                数据结构教学网站
+            </div>
+            <div href="#" class="user">
+                <img src alt="" class="avatar">
+                <div class="person">
+                    <a href="./person.html" class="home">个人中心</a>
+                    <a href="#" class="logout">退出<span class="iconfont icon-exittuichu"></span></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <ul class="wrap">
+            <li>
+                <a href="./index.html">首页</a>
+            </li>
+            <li>
+                <a href="./课程简介.html">课程简介</a>
+                <ul>
+                    <li><a href="./教学大纲.html">教学大纲</a></li>
+                    <li><a href="./教学日历.html">教学日历</a></li>
+                    <li><a href="./教案.html">教案</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="./电子讲稿.html">电子讲稿</a>
+            </li>
+            <li>
+                <a href="./算法.html">算法</a>
+                <ul>
+                    <li><a href="./算法.html">
+                            算法描述
+                        </a></li>
+                    <li><a href="./代码实现.html">
+                            代码实现
+                        </a></li>
+                    <li><a href="./动画展示.html">
+                            动画展示
+                        </a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="./讨论交流.html">讨论交流</a>
+            </li>
+            <li>
+                <a href="./相关资料.html">相关资料</a>
+            </li>
+            <li>
+                <a href="./我要留言.html">我要留言</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="wrap">
+        <div class="main-list">
+            <h3>算法</h3>
+            <ul>
+                <li><a href="./算法.html">算法描述</a></li>
+                <li><a href="./代码实现.html">代码实现</a></li>
+                <li><a href="./动画展示.html" style="color: rgb(11, 172, 236);background-color: #E9E9E9;border-left: 8px solid #FF9501;">动画展示</a></li>
+            </ul>
+        </div>
+        <div class="main-right">
+            <ol class="main-right-tit">
+                <li><a href="./index.html">首页</a></li>
+                <li><a href="./算法.html">算法</a></li>
+                <li><a href="./动画展示.html">动画展示</a></li>            </ol>
+            <div class="newsInfo">
+                <h3>动画展示</h3>
+                <!-- video controls="controls" autoplay muted loop -->
+                <video controls="controls" autoplay muted  loop id="video">
+                    <source src="../images/算法编程宣传片.mp4" >
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+        </div>
+        <div class="clearfix"></div>
+    </main>
+
+    <!-- foot -->
+    <footer>
+        <div class="wrap">
+            <p>大庆市高新技术开发区发展路199号东北石油大学 &nbsp;&nbsp;&nbsp; 邮政编码：163318</p>
+            <p>
+                电子邮箱：zsb007@126.com &nbsp;&nbsp; 联系电话：0459-6503662 &nbsp;&nbsp; 传真：0459-6503662 &nbsp;&nbsp;
+                备案：京ICP备10000000号-3 &nbsp;&nbsp;
+                京公网安备：10000000000753号 &nbsp;&nbsp;
+            </p>
+        </div>
+
+    </footer>
+    <!-- <script>
+        document.getElementById('video').onload = function() {
+            document.getElementById('video').muted = 'false'
+            document.getElementById('video').volume=0.4
+        }
+    </script> -->
+    <script src="../js/axios.min.js"></script>
+    <script src="../js/commend.js"></script>
+    <script>
+        // 获取用户信息
+        axios.get('user/userInfo')
+            .then((res) => {
+                res = res.data
+                if (res[0].avatarUrl == 'null') {
+                    headerAvatar.src = '../images/default-avatar.jpg'
+                } else {
+                    headerAvatar.src = res[0].avatarUrl
+                }
+            })
+            .catch((err) => {
+                if (err.response == undefined || err.response.status !== 200) {
+                    localStorage.removeItem('token');
+                    alert('Token已过期，请重新登录~')
+                    window.location.href = 'http://192.168.43.71:3001/'
+                }
+            })
+    </script>
+</body>
+
+</html>

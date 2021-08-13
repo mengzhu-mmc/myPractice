@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据结构教学网站</title>
+    <link rel="shutdown icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/second-common.css">
+    <style>
+        ul,
+        li {
+            list-style: none;
+        }
+
+        .news h4 {
+            font-size: 20px;
+            padding: 10px 0;
+        }
+
+        .news h5 {
+            text-indent: 1em;
+            font-size: 18px;
+            padding: 5px 0;
+        }
+
+        .news h6 {
+            text-indent: 2em;
+            font-size: 16px;
+            padding: 5px 0;
+        }
+
+        .news p {
+            text-indent: 3.5em;
+        }
+
+        main.wrap{
+            margin-top: 30px;
+            background: #fff;
+        }
+
+        .main-right {
+            padding-bottom: 20px;
+        }
+
+        .main-right .moment {
+            height: auto;
+            /* overflow-y: scroll; */
+        }
+
+        .main-right .moment li {
+            padding: 20px 0 20px 15px;
+            cursor: pointer;
+            border-bottom: 1px solid #ccc;
+            transition: all .3s;
+        }
+
+        .main-right .moment li:hover {
+            color: rgb(0, 158, 163);
+            border-bottom: 1px solid orange;
+        }
+
+        .main-right .moment li .user,
+        .main-right .moment li .comment {
+            display: flex;
+            display: -webkit-flex;
+            height: 109px;
+            align-items: center;
+        }
+
+        .main-right .moment .date {
+            display: inline-block;
+            margin-top: 10px;
+            color: #bbb;
+            font-size: 14px;
+        }
+
+        .main-right .moment .reply {
+            display: inline-block;
+            margin-top: 10px;
+            margin-left: 20px;
+            color: #bbb;
+        }
+
+        .main-right .moment .reply:hover {
+            color: #000;
+        }
+
+        .main-right .moment li .user .userAvatar,
+        .main-right .moment li .comment .userAvatar {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .main-right .moment li .user .con,
+        .main-right .moment li .comment .con {
+            margin-left: 20px;
+        }
+
+        .main-right .moment li .user .userName,
+        .main-right .moment li .comment .userName {
+            margin-bottom: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            color: orange;
+        }
+
+        .main-right .moment li .user .con p,
+        .main-right .moment li .comment p {
+            display: -webkit-box;
+            font-size: 17px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        .main-right .moment li .comment {
+            padding-left: 40px;
+            font-size: 16px;
+        }
+
+        .main-right .moment li .comment .userAvatar {
+            width: 50px;
+            height: 50px;
+        }
+        .main-right .moment li .comment .userName span {
+            margin-left: 10px;
+            color: rgb(0, 195, 255);
+            font-size: 16px;
+            font-weight: 100;
+        }
+
+        .updateMoment {
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 3;
+            display: flex;
+            display: -webkit-flex;
+            align-items: center;
+            width: 0;
+            height: 60px;
+            background: rgb(4, 135, 150);
+            overflow: hidden;
+            transition: width .6s;
+        }
+
+        .updateMoment .con {
+            margin-left: 10%;
+            min-width: 880px;
+            max-width: 980px;
+            min-height: 50px;
+            max-height: 50px;
+            padding: 10px;
+            color: #000;
+            background: #fff;
+            line-height: 1.5;
+            outline: none;
+            border: 2px solid paleturquoise;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            text-indent: 2em;
+        }
+
+        .updateMoment .sub {
+            margin-left: 50px;
+            width: 100px;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+            color: rgb(40, 116, 214);
+            background: #fff;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all .3s;
+            transform: translate3d(0, 0, 0);
+        }
+
+        .updateMoment .sub:hover {
+            transform: scale(1.1) translateZ(0);
+            border-radius: 15%;
+            background: rgb(203, 250, 250);
+        }
+
+        .updateMoment .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 30px;
+            width: 60px;
+            height: 60px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .updateMoment .close:hover {
+            color: orange;
+        }
+
+        .addMoment {
+            position: fixed;
+            top: 50%;
+            left: -265px;
+            transform: translateY(-50%);
+            z-index: 5;
+            display: flex;
+            display: -webkit-flex;
+            padding: 20px 10px;
+            width: 300px;
+            border-radius: 0 15px 15px 0;
+            background: rgb(143, 221, 208);
+            transition: all .6s ease-in-out;
+        }
+        .addMoment .wrap {
+            padding: 10px 0;
+            width: 260px;
+        }
+        .addMoment .wrap textarea {
+            min-width: 251px;
+            max-width: 260px;
+            min-height: 140px;
+            max-height: 140px;
+            padding: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            outline: thin ;
+        }
+        .addMoment .submit {
+            margin: 10px auto;
+            width: 100%;
+            height: 32px;
+            cursor: pointer;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 3px 3px 5px rgb(235, 217, 182);
+        }
+        .addMoment .submit:hover {
+            background: deepskyblue;
+            box-shadow: 3px 3px 5px rgb(69, 146, 235);
+            color: #fff;
+        }
+        .addMoment .tit {
+            padding: 10px;
+            display: flex;
+            display: -webkit-flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 40px;
+            font-size: 19px;
+            cursor: pointer;
+        }
+        .addMoment .tit .show {
+            padding: 13px 10px;
+            border-radius: 10px;
+            background: rgb(115, 215, 233);
+            transition: all .3s;
+        }
+        .addMoment .tit .show:hover {
+            color: #eee;
+            box-shadow: 0 0 5px rgb(20, 117, 228);
+            background: rgb(106, 205, 245);
+        }
+        .addMoment .tit .close {
+            padding: 13px 10px;
+            border-radius: 10px;
+            background: tomato;
+            transition: all .3s;
+        }
+        .addMoment .tit .close:hover {
+            color: #eee;
+            box-shadow: 0 0 5px rgb(20, 117, 228);
+            background: rgb(231, 25, 25);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- header -->
+    <header>
+        <div class="wrap">
+            <div class="logo">
+            </div>
+            <div class="content">
+                数据结构教学网站
+            </div>
+            <div href="#" class="user">
+                <img src alt="" class="avatar">
+                <div class="person">
+                    <a href="./person.html" class="home">个人中心</a>
+                    <a href="#" class="logout">退出<span class="iconfont icon-exittuichu"></span></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <ul class="wrap">
+            <li>
+                <a href="./index.html">首页</a>
+            </li>
+            <li>
+                <a href="./课程简介.html">课程简介</a>
+                <ul>
+                    <li><a href="./教学大纲.html">教学大纲</a></li>
+                    <li><a href="./教学日历.html">教学日历</a></li>
+                    <li><a href="./教案.html">教案</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="./电子讲稿.html">电子讲稿</a>
+            </li>
+            <li>
+                <a href="./算法.html">算法</a>
+                <ul>
+                    <li><a href="./算法.html">
+                            算法描述
+                        </a></li>
+                    <li><a href="./代码实现.html">
+                            代码实现
+                        </a></li>
+                    <li><a href="./动画展示.html">
+                            动画展示
+                        </a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="./讨论交流.html">讨论交流</a>
+            </li>
+            <li>
+                <a href="./相关资料.html">相关资料</a>
+            </li>
+            <li>
+                <a href="./我要留言.html">我要留言</a>
+            </li>
+        </ul>
+    </nav>
+    <main class="wrap">
+        <div class="main-list">
+            <h3>讨论交流</h3>
+            <ul>
+                <li><a href="javascript:;"
+                        style="color: rgb(11, 172, 236);background-color: #E9E9E9;border-left: 8px solid #FF9501;">讨论交流</a>
+                </li>
+            </ul>
+        </div>
+        <div class="main-right">
+            <ol class="main-right-tit">
+                <li><a href="./index.html">首页</a></li>
+                <li><a href="javascript:;">讨论交流</a></li>
+            </ol>
+            <div class="newsInfo">
+                <h3>讨论交流</h3>
+                <div class="moment">
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </main>
+    <!-- foot -->
+    <footer>
+        <div class="wrap">
+            <p>大庆市高新技术开发区发展路199号东北石油大学 &nbsp;&nbsp;&nbsp; 邮政编码：163318</p>
+            <p>
+                电子邮箱：zsb007@126.com &nbsp;&nbsp; 联系电话：0459-6503662 &nbsp;&nbsp; 传真：0459-6503662 &nbsp;&nbsp;
+                备案：京ICP备10000000号-3 &nbsp;&nbsp;
+                京公网安备：10000000000753号 &nbsp;&nbsp;
+            </p>
+        </div>
+
+    </footer>
+
+    <div class="updateMoment wrap">
+        <textarea class="con" data-momentId='' data-commentId=''></textarea>
+        <div class="sub">提交</div>
+        <div class="close">X</div>
+    </div>
+
+    <div class="addMoment">
+        <div class="wrap">
+            <textarea name="" id="" placeholder="发表评论~"></textarea>
+            <button class="submit">提交</button>
+        </div>
+        <div class="tit">
+            <div class="show">展开</div>
+            <div class="close">收起</div>
+        </div>
+    </div>
+
+    <script src="../js/axios.min.js"></script>
+    <script src="../js/commend.js"></script>
+    <script>
+        // 格式化日期
+        Date.prototype.format = function (fmt) {
+            var o = {
+                "M+": this.getMonth() + 1, //月份
+                "d+": this.getDate(), //日
+                "h+": this.getHours(), //小时
+                "m+": this.getMinutes(), //分
+                "s+": this.getSeconds(), //秒
+                "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+                "S": this.getMilliseconds() //毫秒
+            };
+            if (/(y+)/.test(fmt)) {
+                fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+            }
+            for (var k in o) {
+                if (new RegExp("(" + k + ")").test(fmt)) {
+                    fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[
+                        k]).length)));
+                }
+            }
+            return fmt;
+        }
+
+        // 获取用户信息
+        axios.get('user/userInfo')
+            .then((res) => {
+                res = res.data
+                if (res[0].avatarUrl == 'null') {
+                    headerAvatar.src = '../images/default-avatar.jpg'
+                } else {
+                    headerAvatar.src = res[0].avatarUrl
+                }
+            })
+            .catch((err) => {
+                if (err.response == undefined || err.response.status !== 200) {
+                    localStorage.removeItem('token');
+                    alert('Token已过期，请重新登录~')
+                    window.location.href = 'http://192.168.43.71:3001/'
+                }
+            })
+
+        // 获取动态列表
+        axios.get('moment?limit=30&offset=0')
+            .then((res) => {
+                res = res.data
+                let momentList = document.createElement('ul')
+                 res.forEach(async item => {
+                    let momentItem = document.createElement('li')
+                    let itemTimes = new Date((item.createTime).toString()).format(
+                        "yyyy-MM-dd hh:mm:ss");
+                    momentItem.innerHTML += `
+                    <div class="user">
+                        <img src="${item.author.avatar}" class="userAvatar"></img>
+                        <div class="con">
+                            <div class="userName">${item.author.name}</div>
+                            <p>${item.content}</p>
+                            <span class="date">发表日期：${itemTimes}</span>
+                            <span class="reply" data-momentid="${item.id}" onclick="show(${item.id})">回复</span>
+                        </div>
+                    </div>
+                    `
+                    axios.get(`moment/${item.id}`)
+                        .then((res) => {
+                            // console.log(res.data);
+                            commentList = res.data.comments
+                            if (commentList[0].content == null) {
+                                return false
+                            }
+                            commentList.forEach(commentItem => {
+                                console.log(commentItem);
+                                let commentItemTimes = new Date((commentItem.createTime)
+                                    .toString()).format("yyyy-MM-dd hh:mm:ss");
+
+                                momentItem.innerHTML += `
+                                    <div class="comment">
+                                        <img src="${commentItem.avatar}" class="userAvatar"></img>
+                                        <div class="con">
+                                            <div class="userName">${commentItem.momentname} <span>${commentItem.commendname ? '@'+commentItem.commendname : ''}<span> </div>
+                                            <p>${commentItem.content}</p>
+                                            <span class="date">发表日期：${commentItemTimes}</span>
+                                            <span class="reply" data-commentid="${commentItem.comment_id}" onclick="show(${item.id},${commentItem.id})">回复</span>
+                                        </div>
+                                    </div>
+                                    `
+                            })
+                        })
+                        .catch((err) => {
+                            console.log(err);
+                        })
+                    momentList.appendChild(momentItem)
+                    document.querySelector('.newsInfo .moment').appendChild(momentList)
+                });
+            })
+
+
+
+            // 发表回复
+        const close = document.querySelector('.updateMoment .close')
+        const commentInfo = document.querySelector('.updateMoment .con')
+        const commentSub = document.querySelector('.updateMoment .sub')
+        // 关闭窗口
+        addEvent(close, 'click', () => {
+            document.querySelector('.updateMoment').style.width = '0';
+            commentInfo.value == ''
+        })
+
+        addEvent(commentSub, 'click', () => {
+            if (commentInfo.value == '') {
+                document.querySelector('.updateMoment').style.width = '0%';
+                return false       
+            }
+            if (commentInfo.dataset.commentid == 'undefined') {
+                axios.post('comment', {
+                    'momentId': commentInfo.dataset.momentid,
+                    'content': commentInfo.value
+                })
+                .then((res) => {
+                    console.log(res);
+                    window.location.reload()
+                }, (err) => {
+                    console.log(err);
+                })
+            } else {
+                axios.post(`comment/${commentInfo.dataset.commentid}/reply`, {
+                    'momentId': commentInfo.dataset.momentid,
+                    'content': commentInfo.value
+                })
+                .then((res) => {
+                    console.log(res);
+                    window.location.reload()
+                }, (err) => {
+                    console.log(err);
+                })
+            }
+        })
+    
+
+        function show (momentId, commentId) {
+            console.log(momentId, commentId);
+            document.querySelector('.updateMoment').style.width = '100%';
+            commentInfo.dataset.momentid = momentId
+            commentInfo.dataset.commentid = commentId
+        }
+
+        // 发表评论
+        const addMoment = document.querySelector('.addMoment')
+        const showAddMoment = document.querySelector('.addMoment .show')
+        const closeAddMoment = document.querySelector('.addMoment .close')
+        const subMoment = document.querySelector('.addMoment .submit')
+        const momentCon = document.querySelector('.addMoment textarea')
+        
+        addEvent(showAddMoment, 'click', function () { 
+            addMoment.style.left = '0'
+         })
+
+        addEvent(closeAddMoment, 'click', function () { 
+            addMoment.style.left = '-265px';
+         })
+
+        addEvent(subMoment, 'click', function () {
+            if (momentCon.value == '') {
+                return false
+            }
+            axios.post('moment', {
+                'content': momentCon.value
+            })
+            .then((res) => {
+                console.log(res);
+                window.location.reload()
+            })
+            .catch((err) => {
+                console.log(err.response);
+            })
+         })
+    </script>
+</body>
+
+</html>

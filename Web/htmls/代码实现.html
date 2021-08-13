@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据结构教学网站</title>
+    <link rel="shutdown icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/second-common.css">
+    <style>
+        .news h4 {
+            font-size: 20px;
+            padding: 10px 0;
+        }
+
+        .news h5 {
+            text-indent: 1em;
+            font-size: 18px;
+            padding: 5px 0;
+        }
+
+        .news h6 {
+            text-indent: 2em;
+            font-size: 16px;
+            padding: 5px 0;
+        }
+
+        .news p {
+            text-indent: 3.5em;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- header -->
+    <header>
+        <div class="wrap">
+            <div class="logo">
+            </div>
+            <div class="content">
+                数据结构教学网站
+            </div>
+            <div href="#" class="user">
+                <img src alt="" class="avatar">
+                <div class="person">
+                    <a href="./person.html" class="home">个人中心</a>
+                    <a href="#" class="logout">退出<span class="iconfont icon-exittuichu"></span></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <ul class="wrap">
+            <li>
+                <a href="./index.html">首页</a>
+            </li>
+            <li>
+                <a href="./课程简介.html">课程简介</a>
+                <ul>
+                    <li><a href="./教学大纲.html">教学大纲</a></li>
+                    <li><a href="./教学日历.html">教学日历</a></li>
+                    <li><a href="./教案.html">教案</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="./电子讲稿.html">电子讲稿</a>
+            </li>
+            <li>
+                <a href="./算法.html">算法</a>
+                <ul>
+                    <li><a href="./算法.html">
+                            算法描述
+                        </a></li>
+                    <li><a href="./代码实现.html">
+                            代码实现
+                        </a></li>
+                    <li><a href="./动画展示.html">
+                            动画展示
+                        </a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="./讨论交流.html">讨论交流</a>
+            </li>
+            <li>
+                <a href="./相关资料.html">相关资料</a>
+            </li>
+            <li>
+                <a href="./我要留言.html">我要留言</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="wrap">
+        <div class="main-list">
+            <h3>算法</h3>
+            <ul>
+                <li><a href="./算法.html">算法描述</a></li>
+                <li><a href="./代码实现.html"
+                        style="color: rgb(11, 172, 236);background-color: #E9E9E9;border-left: 8px solid #FF9501;">代码实现</a>
+                </li>
+                <li><a href="./动画展示.html">动画展示</a></li>
+            </ul>
+        </div>
+        <div class="main-right">
+            <ol class="main-right-tit">
+                <li><a href="./index.html">首页</a></li>
+                <li><a href="./算法.html">算法</a></li>
+                <li><a href="./代码实现.html">代码实现</a></li>
+            </ol>
+            <div class="newsInfo">
+                <h3>代码实现</h3>
+                <div class="news">
+                    <h4 style="font-size: 24px;padding: 20px 0;">（二）数据结构算法代码实现——线性的顺序表示与实现</h4>
+                    <h4>一、线性表的顺序表示：</h4>
+                    <p>指的是一组地址连续的存储单元依次存储线性表的数据元素。
+                    </p>
+                    <h4>二、顺序表的存储方法与特点</h4>
+                    <p>1 在日常生活中，我们通常更喜欢使用连续的存储空间来存放各种物品。
+                    </p>
+                    <p>2 好，举个例子：假设宿舍内的床铺用编号1-6，宿舍内成员按年龄分出老大-老六，老大使用 3 编号为1的床铺。依次类推。</p>
+                    <p>
+                        3 这种安排方式可以使我们通过床铺编号快速找到同学。
+                    </p>
+                    <p> 4 顺序表的存储方式也与此类似，下面讨论顺序表的特点： </p>
+                    <p style="padding-left: 20px;"> 1. 顺序存储结构的逻辑存储和存储结构一致</p>
+                    <p style="padding-left: 20px;">2. 访问每个数据元素所花费的时间相同，利用数学公式</p>
+                    <p style="padding-left: 20px;"> 3. 存取元素的方法称为随机存取法，也称为随机存储结构。</p>
+                    <h4>三、顺序存储结构表示</h4>
+                    <pre>    1  //----线性表的动态分配顺序存储结构----
+        2  #define LIST_INIT_SIZE 10 //线性表存储空间的初始分配量
+        3  #define LISTADD 5  //线性表存储空间的分配增量
+        4  typedef struct {
+        5    ElemType * elem; //存储空间基址(数组的基地址)
+        6    int length;//当前长度
+        7    int listsize;//当前分配的存储总容量（sizeof（ElemType）为单位）
+        8  }Sqlist;
+                    </pre>
+                    <h5 style="padding-left: 32px;">见严蔚敏教材22页。</h5>
+                </div>
+            </div>
+
+        </div>
+        <div class="clearfix"></div>
+    </main>
+
+    <!-- foot -->
+    <footer>
+        <div class="wrap">
+            <p>大庆市高新技术开发区发展路199号东北石油大学 &nbsp;&nbsp;&nbsp; 邮政编码：163318</p>
+            <p>
+                电子邮箱：zsb007@126.com &nbsp;&nbsp; 联系电话：0459-6503662 &nbsp;&nbsp; 传真：0459-6503662 &nbsp;&nbsp;
+                备案：京ICP备10000000号-3 &nbsp;&nbsp;
+                京公网安备：10000000000753号 &nbsp;&nbsp;
+            </p>
+        </div>
+
+    </footer>
+    <script src="../js/axios.min.js"></script>
+    <script src="../js/commend.js"></script>
+    <script>
+        // 获取用户信息
+        axios.get('user/userInfo')
+            .then((res) => {
+                res = res.data
+                if (res[0].avatarUrl == 'null') {
+                    headerAvatar.src = '../images/default-avatar.jpg'
+                } else {
+                    headerAvatar.src = res[0].avatarUrl
+                }
+            })
+            .catch((err) => {
+                if (err.response == undefined || err.response.status !== 200) {
+                    localStorage.removeItem('token');
+                    alert('Token已过期，请重新登录~')
+                    window.location.href = 'http://192.168.43.71:3001/'
+                }
+            })
+    </script>
+</body>
+
+</html>

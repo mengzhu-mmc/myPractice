@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据结构教学网站</title>
+    <link rel="shutdown icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/second-common.css">
+    <style>
+        .newsInfo ul {
+            margin-top: 14px;
+        }
+
+        .newsInfo ul li {
+            padding: 0 10px;
+            height: 34px;
+            line-height: 34px;
+        }
+
+        .newsInfo ul li a {
+            display: inline-block;
+            width: 100%;
+            font-size: 16px;
+        }
+        .newsInfo ul li a:hover {
+            color: rgb(11, 172, 236);
+            text-decoration: underline;
+        }
+        .newsInfo ul li a span {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- header -->
+    <header>
+        <div class="wrap">
+            <div class="logo">
+            </div>
+            <div class="content">
+                数据结构教学网站
+            </div>
+            <div href="#" class="user">
+                <img src alt="" class="avatar">
+                <div class="person">
+                    <a href="./person.html" class="home">个人中心</a>
+                    <a href="#" class="logout">退出<span class="iconfont icon-exittuichu"></span></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <ul class="wrap">
+            <li>
+                <a href="./index.html">首页</a>
+            </li>
+            <li>
+                <a href="./课程简介.html">课程简介</a>
+                <ul>
+                    <li><a href="./教学大纲.html">教学大纲</a></li>
+                    <li><a href="./教学日历.html">教学日历</a></li>
+                    <li><a href="./教案.html">教案</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="./电子讲稿.html">电子讲稿</a>
+            </li>
+            <li>
+                <a href="./算法.html">算法</a>
+                <ul>
+                    <li><a href="./算法.html">
+                            算法描述
+                        </a></li>
+                    <li><a href="./代码实现.html">
+                            代码实现
+                        </a></li>
+                    <li><a href="./动画展示.html">
+                            动画展示
+                        </a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="./讨论交流.html">讨论交流</a>
+            </li>
+            <li>
+                <a href="./相关资料.html">相关资料</a>
+            </li>
+            <li>
+                <a href="./我要留言.html">我要留言</a>
+            </li>
+        </ul>
+    </nav>
+    <main class="wrap">
+        <div class="main-list">
+            <h3>电子讲稿</h3>
+            <ul>
+                <li><a href="javascript:;"
+                        style="color: rgb(11, 172, 236);background-color: #E9E9E9;border-left: 8px solid #FF9501;">电子讲稿</a>
+                </li>
+            </ul>
+        </div>
+        <div class="main-right">
+            <ol class="main-right-tit">
+                <li><a href="./index.html">首页</a></li>
+                <li><a href="javascript:;">电子讲稿</a></li>
+            </ol>
+            <div class="newsInfo">
+                <h3>电子讲稿</h3>
+                <ul>
+                    <li><a href="javascript:;">
+                            清华大学严蔚敏版数据结构讲义
+                            <span>[5-9]</span>
+                        </a></li>
+                    <li><a href="javascript:;">
+                            数据结构课程讲稿《数据结构》
+                            <span>[5-9]</span>
+                        </a></li>
+                    <li><a href="javascript:;">
+                            传智播客C和C++与数据结构基础讲义
+                            <span>[5-9]</span>
+                        </a></li>
+                    <li><a href="javascript:;">
+                            职业技能培训 有了“终身”保障
+                            <span>[5-9]</span>
+                        </a></li>
+                    <li><a href="javascript:;">
+                            有关负责人就《计算机与科学技术数据结构教案语言版》
+                            <span>[5-9]</span>
+                        </a></li>
+                    <li><a href="javascript:;">
+                            国务院关于推行终身职业技能培训制度的意见
+                            <span>[5-9]</span>
+                        </a></li>
+                    <li><a href="javascript:;">
+                            “中日信息技术考试”考试标准互认范围进一步扩大
+                            <span>[5-9]</span>
+                        </a></li>
+                    <li><a href="javascript:;">
+                            专业技术人员资格考试违纪违规行为处理规定
+                            <span>[5-9]</span>
+                        </a></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="clearfix"></div>
+    </main>
+
+    <!-- foot -->
+    <footer>
+        <div class="wrap">
+            <p>大庆市高新技术开发区发展路199号东北石油大学 &nbsp;&nbsp;&nbsp; 邮政编码：163318</p>
+            <p>
+                电子邮箱：zsb007@126.com &nbsp;&nbsp; 联系电话：0459-6503662 &nbsp;&nbsp; 传真：0459-6503662 &nbsp;&nbsp;
+                备案：京ICP备10000000号-3 &nbsp;&nbsp;
+                京公网安备：10000000000753号 &nbsp;&nbsp;
+            </p>
+        </div>
+
+    </footer>
+    <script src="../js/axios.min.js"></script>
+    <script src="../js/commend.js"></script>
+    <script>
+            // 获取用户信息
+                axios.get('user/userInfo')
+            .then((res) => {
+                res = res.data
+                if (res[0].avatarUrl == 'null') {
+                    headerAvatar.src = '../images/default-avatar.jpg'
+                } else {
+                    headerAvatar.src = res[0].avatarUrl
+                }
+            })
+            .catch((err) => {
+                if (err.response == undefined || err.response.status !== 200) {
+                    localStorage.removeItem('token');
+                    alert('Token已过期，请重新登录~')
+                    window.location.href = 'http://192.168.43.71:3001/'
+                }
+            })
+    </script>
+</body>
+
+</html>

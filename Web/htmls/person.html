@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据结构教学网站</title>
+    <link rel="shutdown icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../css/iconfont.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/person.css">
+</head>
+
+<body>
+    <!-- header -->
+    <header>
+        <div class="wrap">
+            <div class="logo">
+            </div>
+            <div class="content">
+                数据结构教学网站
+            </div>
+            <div href="#" class="user">
+                <img src alt="" class="avatar">
+                <div class="person">
+                    <a href="./person.html" class="home">个人中心</a>
+                    <a href="#" class="logout">退出<span class="iconfont icon-exittuichu"></span></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <ul class="wrap">
+            <li>
+                <a href="./index.html">首页</a>
+            </li>
+            <li>
+                <a href="./课程简介.html">课程简介</a>
+                <ul>
+                    <li><a href="./教学大纲.html">教学大纲</a></li>
+                    <li><a href="./教学日历.html">教学日历</a></li>
+                    <li><a href="./教案.html">教案</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="./电子讲稿.html">电子讲稿</a>
+            </li>
+            <li>
+                <a href="./算法.html">算法</a>
+                <ul>
+                    <li><a href="./算法.html">
+                            算法描述
+                        </a></li>
+                    <li><a href="./代码实现.html">
+                            代码实现
+                        </a></li>
+                    <li><a href="./动画展示.html">
+                            动画展示
+                        </a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="./讨论交流.html">讨论交流</a>
+            </li>
+            <li>
+                <a href="./相关资料.html">相关资料</a>
+            </li>
+            <li>
+                <a href="./我要留言.html">我要留言</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="main-left">
+            <div class="avatar">
+                <img src alt="">
+                <div>
+                    <input type="file" accept="jpg, jpeg, png, webp" name="avatar" id="avatarUpload">
+                    <span>点我上传头像</span>
+                    <input type="submit" class="sub">
+                </div>
+            </div>
+            <div class="userName">
+                <span>姓名</span>
+                <input type="text">
+            </div>
+            <div class="userPassword">
+                <span>密码</span>
+                <input type="password">
+            </div>
+            <div class="submit">
+                提交更新
+            </div>
+            <div class="delUser">
+                注销
+            </div>
+        </div>
+        <div class="main-right">
+            <h2 class="tit">我的评论：</h2>
+            <ul class="mymoment">
+            </ul>
+        </div>
+    </main>
+
+    <!-- foot -->
+    <footer>
+        <div class="wrap">
+            <p>大庆市高新技术开发区发展路199号东北石油大学 &nbsp;&nbsp;&nbsp; 邮政编码：163318</p>
+            <p>
+                电子邮箱：zsb007@126.com &nbsp;&nbsp; 联系电话：0459-6503662 &nbsp;&nbsp; 传真：0459-6503662 &nbsp;&nbsp;
+                备案：京ICP备10000000号-3 &nbsp;&nbsp;
+                京公网安备：10000000000753号 &nbsp;&nbsp;
+            </p>
+        </div>
+
+    </footer>
+
+    <div class="updateMoment wrap">
+        <textarea class="con">老年时最大的安慰莫过于意识到,已把全部青春的力量都献给了永不衰老的事业。老年时最大的安慰莫过于意识到,已把全部青春的力量都献给了永不衰老的事业。老年时最大的安慰莫过于意识到,已把全部青春的力量都献给了永不衰老的事业。</textarea>
+        <div class="sub">提交</div>
+        <div class="close">X</div>
+    </div>
+    
+    <script src="../js/axios.min.js"></script>
+    <script src="../js/commend.js"></script>
+    <script>
+        const mainAvatar = document.querySelector('main .main-left .avatar>img')
+        const subAvatar = document.querySelector('main .main-left .avatar .sub')
+        const file = document.querySelector('main .main-left .avatar>div>span')
+        const userName = document.querySelector('.main-left .userName input')
+        const userPassword = document.querySelector('main .main-left .userPassword input')
+        const delUser = document.querySelector('.main-left .delUser')
+        const myMoment = document.querySelector('.main-right .mymoment')
+        const subInfo = document.querySelector('.main-left .submit')
+        const showMoments = document.querySelectorAll('.mymoment li a .mask .edit')
+        const deleteMoments = document.querySelectorAll('.mymoment li a .mask .delete')
+        const updateMomentInfo = document.querySelector('.updateMoment .con')
+        const updateMomentSub = document.querySelector('.updateMoment .sub')
+        
+
+        // 密码框点击显示密码
+        addEvent(userPassword, 'focus', function () {
+            this.type = 'text'
+        })
+        addEvent(userPassword, 'blur', function () {
+            this.type = 'password'
+        })
+
+        // 触发input上传文件
+        addEvent(file, 'click', () => {
+            document.querySelector('main .avatar>div>input').click()
+        })
+
+        // delUser
+
+        // 获取用户信息，填充主体部分
+        axios.get('user/userInfo')
+            .then((res) => {
+                res = res.data
+                // 用户头像
+                if (res[0].avatarUrl == 'null') {
+                    headerAvatar.src = '../images/default-avatar.jpg'
+                    mainAvatar.src = '../images/default-avatar.jpg'
+                } else {
+                    headerAvatar.src = res[0].avatarUrl
+                    mainAvatar.src = res[0].avatarUrl
+                }
+
+                // 用户信息
+                userName.value = res[0].name;
+
+                // 用户评论
+                res[0].moment.forEach(item => {
+                    let momentItem = document.createElement("li")
+                    momentItem.innerHTML = `
+                    <a href="javascript:;"  title="${item.content}">
+                        <p>${item.content}</p>
+                        <div class="date">发表于：${item.createTime}</div>
+                        <div class="mask" data-momentid="${item.momentId}">
+                            <i class="iconfont icon-icon6 edit"></i>
+                            <i class="iconfont icon-shanchu delete"></i>
+                        </div>
+                    </a>
+                    `
+                    myMoment.appendChild(momentItem)
+                });
+            })
+            .catch((err) => {
+                // err.response获取错误时返回的信息！！！！！！
+                if (err.response.status == 401) {
+                    localStorage.setItem('token', '')
+                    alert('Token已过期，请重新登录~')
+                    window.location.href = 'http://192.168.43.71:3001/'
+                }
+            })
+            .then(() => {
+                const showMoments = document.querySelectorAll('.main-right .mymoment li a .edit')
+                const deleteMoments = document.querySelectorAll('.main-right .mymoment li a .delete')
+                const close = document.querySelector('.updateMoment .close')
+                // 关闭窗口
+                addEvent(close, 'click', () => {
+                    document.querySelector('.updateMoment').style.width = '0';
+                })
+                for (let i = 0; i < showMoments.length; i++) {
+                    // 更新动态
+                    addEvent(showMoments[i], 'click', function () {
+                        document.querySelector('.updateMoment').style.width = '100%';
+                        const momentId = this.parentNode.dataset.momentid
+                        const con = this.parentNode.parentNode.childNodes[1].innerText;
+                        updateMomentInfo.innerText = con;
+                        addEvent(updateMomentSub, 'click', () => {
+                            axios.patch(`/moment/${momentId}`, {
+                                "content": updateMomentInfo.value
+                            })
+                            .then((res) => {
+                                console.log(res);
+                                window.location.reload()
+                            })
+                            .catch((err) => {
+                                console.log(err.response);
+                            })
+                        })
+                    })
+                    // 删除动态
+                    addEvent(deleteMoments[i], 'click', function() {
+                        const momentId = this.parentNode.dataset.momentid
+                        axios.delete(`/moment/${momentId}`)
+                            .then((res) => {
+                                console.log(res);
+                                window.location.reload()
+                            })
+                            .catch((err) => {
+                                console.log(err.response);
+                            })
+                    })
+                }
+            })
+        // 更新用户信息
+        addEvent(subInfo, 'click', () => {
+            if (!userName.value || !userPassword.value) {
+                return false
+            }
+            axios.patch('/user', {
+                    name: userName.value,
+                    password: userPassword.value
+                })
+                .then((res) => {
+                    if (res.status == 200) {
+                        alert('更新成功，请重新登录~')
+                        localStorage.setItem('token', '')
+                        window.location.href = 'http://192.168.43.71:3001/'
+                    }
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        })
+
+        // 注销账号
+        addEvent(delUser, 'click', () => {
+            if(confirm("还要继续吗？")){  
+                // 点击确定，注销账户
+                axios.delete('user')
+                    .then((res) => {
+                        localStorage.removeItem('token')
+                        window.location.href = 'http://192.168.43.71:3001/'
+                    })
+                    .catch(err => {
+                        console.log(err.response);
+                    })
+            }else{  
+                // 点击取消，终止操作
+                return false
+            }  
+        })
+        
+        // 限定头像大小不超过2M
+        addEvent(subAvatar, 'click', () => {
+            const file = document.getElementById('avatarUpload').files[0]
+            const fileMaxSize = 1024 * 1024 * 2
+            if (file.size > fileMaxSize) {
+                alert('文件不能超过2M')
+            } else {
+                let formData = new FormData()
+                formData.append('avatar', document.getElementById('avatarUpload').files[0])
+                axios.post('upload/avatar', formData, {
+                        'Content-Type': 'multipart/form-data'
+                    })
+                    .then((res) => {
+                        location.reload()
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    })
+            }
+        })
+    </script>
+</body>
+
+</html>
